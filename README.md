@@ -6,6 +6,17 @@ jQuery Template is a simple yet robust front-end templating plugin for jQuery,
 supporting any JavaScript Syntax, function calling, list rendering, template
 nesting and lot more.
 
+## Download & Installation
+
+Download `/dist/jquery-template.js` to your website `/js` directory, and
+import it in your html file by
+
+```html
+<script src="/js/jquery-template.js"></script>
+```
+
+It will be ready to use!
+
 ## Getting Started
 
 Prior to the use of this plugin, you need:
@@ -43,8 +54,7 @@ The result will then be
 <div id="container">
     <div id="a93e1cff0da">
         <p>
-            Hello,
-            <span>John Doe</span>
+            Hello, <span>John Doe</span>
         </p>
     </div>
 </div>
