@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <script src="../lib/jquery.js"></script>
+        <script src="../dist/template.js"></script>
+    </head>
+    <body>
+        
+        <!-- The place we are going to put our template in -->
+        <div id="container"></div>
+        
+        <!-- This is the school template. Inside school we render a list of students -->
+        <template name="school">
+            <div>
+                <h1 data-text="data.name"></h1>
+                <ul template-name="student" template-data="data.students">
+                    
+                </ul>
+            </div>
+        </template>
+        
+        <!-- This is the student template referenced from school template -->
+        <template name="student">
+            <div data-id="data.info.pid">
+                <p>
+                    <span data-text="data.firstName"></span>
+                    <span data-text="data.lastName"></span>
+                    is a
+                    <span data-text="data.info.year"></span>
+                    with PID:
+                    <span data-text="data.info.pid"></span>
+                </p>
+                <p>
+                    <span data-text="data.gender == 'female' ? 'She' : 'He'"></span>
+                    has such hobbies
+                </p>
+                <ul template-name="hobby" template-data="data.hobbies">
+                    
+                </ul>
+                <hr />
+            </div>
+        </template>
+        
+        <!-- This is the hobby item -->
+        <template name="hobby">
+            <li data-text="data"></li>
+        </template>
+        
+        <script>
+            $("#container").render("school", [
+                {
+                    name: "Harvard",
+                    students: [
+                        {
+                            firstName: "Kizuna",
+                            lastName: "Ai",
+                            gender: "female",
+                            info: {
+                                year: "Sophomore",
+                                pid: "A123456789"
+                            },
+                            hobbies: [ "dancing", "singing" ]
+                        },
+                        {
+                            firstName: "John",
+                            lastName: "Doe",
+                            gender: "male",
+                            info: {
+                                year: "Junior",
+                                pid: "A234567890"
+                            },
+                            hobbies: [ "programming", "coding" ]
+                        }
+                    ]
+                },
+                {
+                    name: "UCSD",
+                    students: [
+                        {
+                            firstName: "Liby",
+                            lastName: "99",
+                            gender: "male",
+                            info: {
+                                year: "Senior",
+                                pid: "A345678901"
+                            },
+                            hobbies: [ "watching anime" ]
+                        }
+                    ]
+                }
+            ]);
+        </script>
+    </body>
+</html>

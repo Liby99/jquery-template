@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <script src="../lib/jquery.js"></script>
+        <script src="../dist/template.js"></script>
+        <style>
+            .pink { color: pink }
+            .orange { color: orange }
+            .red { color: red }
+        </style>
+    </head>
+    <body>
+        
+        <!-- The place we are going to put our template in -->
+        <div id="container"></div>
+        
+        <!-- This is the template we have to put into #container -->
+        <template name="student">
+            <div data-id="data.info.pid" data-class="data.color">
+                <p>
+                    <span data-text="data.firstName"></span>
+                    <span data-text="data.lastName"></span>
+                    is a
+                    <span data-text="data.info.year"></span>
+                    with PID:
+                    <span data-text="data.info.pid"></span>
+                </p>
+                <hr />
+            </div>
+        </template>
+        
+        <script>
+            
+            // You can even call function from html
+            function calculateAge (date) {
+                var diff = new Date().getTime() - date.getTime();
+                return Math.round(diff / 1000 / 60 / 60 / 24 / 365);
+            }
+            
+            // First argument "student" is the name of the template (see above)
+            // The second argument is the information to render the template.
+            $("#container").render("student", [
+                {
+                    firstName: "Kizuna",
+                    lastName: "Ai",
+                    color: "pink",
+                    info: {
+                        year: "Sophomore",
+                        pid: "A123456789"
+                    }
+                },
+                {
+                    firstName: "John",
+                    lastName: "Doe",
+                    color: "orange",
+                    info: {
+                        year: "Junior",
+                        pid: "A234567890"
+                    }
+                },
+                {
+                    firstName: "Liby",
+                    lastName: "99",
+                    color: "red",
+                    info: {
+                        year: "Senior",
+                        pid: "A345678901"
+                    }
+                }
+            ]);
+        </script>
+    </body>
+</html>

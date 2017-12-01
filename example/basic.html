@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script src="../lib/jquery.js"></script>
+        <script src="../dist/template.js"></script>
+    </head>
+    <body>
+        
+        <!-- The place we are going to put our template in -->
+        <div id="container"></div>
+        
+        <!-- This is the template we have to put into #container -->
+        <template name="student">
+            <div>
+                <p>
+                    <span data-text="data.firstName"></span>
+                    <span data-text="data.lastName"></span>
+                    is a
+                    <span data-text="data.info.year"></span>
+                    with PID:
+                    <span data-text="data.info.pid"></span>
+                </p>
+                <p>
+                    <span data-text="data.gender == 'male' ? 'He' : 'She'"></span>
+                    is
+                    <span data-text="calculateAge(data.birthday)"></span>-year-old
+                    right now.
+                </p>
+                <p>
+                    Here is
+                    <span data-text="data.gender == 'male' ? 'his' : 'her'"></span>
+                    image:
+                </p>
+                <img data-src="data.photo" />
+            </div>
+        </template>
+        
+        <script>
+            
+            // You can even call function from html
+            function calculateAge (date) {
+                var diff = new Date().getTime() - date.getTime();
+                return Math.round(diff / 1000 / 60 / 60 / 24 / 365);
+            }
+            
+            // First argument "student" is the name of the template (see above)
+            // The second argument is the information to render the template.
+            $("#container").render("student", {
+                firstName: "Kizuna",
+                lastName: "Ai",
+                birthday: new Date(Date.parse("2016/12/01")),
+                photo: "./img/kizuna_ai.jpg",
+                gender: "female",
+                info: {
+                    year: "Sophomore",
+                    pid: "A123456789"
+                }
+            });
+        </script>
+    </body>
+</html>
