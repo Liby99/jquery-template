@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script src="../lib/jquery.js"></script>
+        <script src="../dist/jquery-template.js"></script>
+    </head>
+    <body>
+        
+        <div id="container"></div>
+        
+        <template name="student">
+            <span data-css="data.css">This is red</span>
+        </template>
+        
+        <script>
+            $("#container").render("student", {
+                css: {
+                    color: "red"
+                }
+            });
+        </script>
+    </body>
+</html>
