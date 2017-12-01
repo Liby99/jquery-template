@@ -16,6 +16,7 @@
         var selector = "[" + attr + "]";
         $t.find(selector).addBack(selector).each(function () {
             callback($(this), eval($(this).attr(attr)));
+            $(this).removeAttr(attr);
         });
     }
     
@@ -42,6 +43,7 @@
         // Finally process recursive template call
         procAttr($t, "template-data", data, ($e, v) => {
             $e.render($e.attr("template-name"), v);
+            $e.removeAttr("template-name");
         });
         
         // Append the data to elem
