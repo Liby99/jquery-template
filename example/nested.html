@@ -1,7 +1,7 @@
 <html>
     <head>
         <script src="../lib/jquery.js"></script>
-        <script src="../dist/template.js"></script>
+        <script src="../dist/jquery-template.js"></script>
     </head>
     <body>
         
@@ -15,12 +15,13 @@
                 <ul template-name="student" template-data="data.students">
                     
                 </ul>
+                <hr />
             </div>
         </template>
         
         <!-- This is the student template referenced from school template -->
         <template name="student">
-            <div data-id="data.info.pid">
+            <li data-id="data.info.pid">
                 <p>
                     <span data-text="data.firstName"></span>
                     <span data-text="data.lastName"></span>
@@ -37,7 +38,7 @@
                     
                 </ul>
                 <hr />
-            </div>
+            </li>
         </template>
         
         <!-- This is the hobby item -->
