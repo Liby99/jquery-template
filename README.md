@@ -8,7 +8,7 @@ nesting and lot more.
 
 ## Download & Installation
 
-Download `/dist/jquery-template.js` to your website `/js` directory, and
+Download `/src/jquery-template.js` to your website `/js` directory, and
 import it in your html file by
 
 ```html
